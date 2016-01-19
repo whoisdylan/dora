@@ -2,21 +2,14 @@
 #include <iostream>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include "Window.h"
+#include "MainComponent.h"
 
 int main(int argc, char **argv) {
   //OutputDebugString("this is how you print to the console in windows\n");
 
-  Window doraWindow(800, 600, "Dora", false);
+  MainComponent game;
 
-  while (!glfwWindowShouldClose(doraWindow.window)) {
-    glfwSwapBuffers(doraWindow.window);
-    glfwPollEvents();
-    if (glfwGetKey(doraWindow.window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
-      glfwSetWindowShouldClose(doraWindow.window, GL_TRUE);
-    }
-  }
-  
-  glfwTerminate();
+  game.start();
+
   return 0;
 }

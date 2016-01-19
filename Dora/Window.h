@@ -6,7 +6,12 @@
 
 class Window {
 public:
-  Window(int, int, std::string, bool);
+  Window(int, int, std::string, bool = false);
+
+  void getSize(int *, int *);
+  bool windowShouldClose();
+  void render();
+
   GLFWwindow *window;
 private:
 };

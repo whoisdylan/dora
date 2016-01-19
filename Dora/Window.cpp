@@ -1,6 +1,6 @@
 #include "Window.h"
 
-Window::Window(int width, int height, std::string title, bool fullscreen = false) {
+Window::Window(int width, int height, std::string title, bool fullscreen) {
   glfwInit();
 
   //request a core opengl context
@@ -25,4 +25,16 @@ Window::Window(int width, int height, std::string title, bool fullscreen = false
 
   GLuint vertexBuffer;
   glGenBuffers(1, &vertexBuffer);
+}
+
+void Window::getSize(int *width, int *height) {
+  return glfwGetWindowSize(window, width, height);
+}
+
+bool Window::windowShouldClose() {
+  return glfwWindowShouldClose(window);
+}
+
+void Window::render() {
+  glfwSwapBuffers(window);
 }
