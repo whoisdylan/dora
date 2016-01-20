@@ -1,29 +1,43 @@
 #include "MainComponent.h"
 #include <iostream>
+#include <fstream>
 
 MainComponent::MainComponent() :
-  doraWindow(800, 600, "Dora", false) {
+  doraWindow(800, 600, "Dora", false),
+  isRunning(false) {
   start();
 }
 
 void MainComponent::start() {
+  if (isRunning) {
+    return;
+  }
+
   run();
 }
 
 void MainComponent::stop() {
-  glfwSetWindowShouldClose(doraWindow.window, GL_TRUE);
+  if (!isRunning) {
+    return;
+  }
+
+  isRunning = false;
 }
 
 void MainComponent::run() {
-  while (!doraWindow.windowShouldClose()) {
+  isRunning = true;
+  while (isRunning) {
+    if (doraWindow.windowShouldClose()) {
+      stop();
+    }
     glfwPollEvents();
     render();
     if (glfwGetKey(doraWindow.window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
-      stop();
+      glfwSetWindowShouldClose(doraWindow.window, GL_TRUE);
       return;
     }
   }
-  glfwTerminate();
+  cleanUp();
 }
 
 void MainComponent::render() {
@@ -31,5 +45,5 @@ void MainComponent::render() {
 }
 
 void MainComponent::cleanUp() {
-
+  glfwTerminate();
 }
