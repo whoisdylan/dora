@@ -32,7 +32,7 @@ void Window::getSize(int *width, int *height) {
 }
 
 bool Window::windowShouldClose() {
-  return glfwWindowShouldClose(window);
+  return glfwWindowShouldClose(window) != 0;
 }
 
 void Window::render() {

@@ -18,9 +18,18 @@ Shader::Shader() {
 GLuint Shader::addShaderToProgram(const std::string &shaderCode, GLenum shaderType) {
   GLuint shader = glCreateShader(shaderType);
   const GLchar *p[1] { shaderCode.c_str() };
-  const GLint lengths[1] { shaderCode.length() };
+  const GLint lengths[1] { (GLint) shaderCode.length() };
   glShaderSource(shader, 1, p, lengths);
+
   glCompileShader(shader);
+  GLint success;
+  GLchar infoLog[512];
+  glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
+  if (!success) {
+    glGetShaderInfoLog(shader, 512, NULL, infoLog);
+    std::cerr << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
+  }
+
   glAttachShader(_program, shader);
   return shader;
 }
@@ -35,7 +44,7 @@ void Shader::readShaderFile(const std::string &filename, std::string &shaderCode
       if (line.find("#include") == std::string::npos) {
         shaderCode.append(line + "\n");
       } else {
-        int breakPoint = line.find(" ");
+        int breakPoint = (int) line.find(" ");
         std::string includeFileName = line.substr(breakPoint, line.length() - breakPoint);
         includeFileName = includeFileName.substr(1, includeFileName.length() - 2);
         std::string includeFileCode;
