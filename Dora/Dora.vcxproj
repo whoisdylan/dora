@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -81,10 +81,10 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\dylan\Downloads\assimp-3.1.1\include;C:\Users\dylan\Downloads\glm\glm;C:\Users\dylan\Downloads\glfw-3.1.2.bin.WIN64\include;C:\Users\dylan\Downloads\glew-1.13.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)thirdparty\assimp\include;$(SolutionDir)thirdparty\glm\include;$(SolutionDir)thirdparty\glfw\include;$(SolutionDir)thirdparty\glew\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>C:\Users\dylan\Downloads\assimp-3.1.1\build\Release;C:\Users\dylan\Downloads\glfw-3.1.2.bin.WIN64\lib-vc2015;C:\Users\dylan\Downloads\glew-1.13.0\lib\Release\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)thirdparty\assimp\lib\Release;$(SolutionDir)thirdparty\glfw\lib;$(SolutionDir)thirdparty\glew\lib\Release\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;glu32.lib;glew32.lib;glfw3.lib;assimp.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -108,12 +108,12 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\dylan\Downloads\assimp-3.1.1\include;C:\Users\dylan\Downloads\glm\glm;C:\Users\dylan\Downloads\glfw-3.1.2.bin.WIN64\include;C:\Users\dylan\Downloads\glew-1.13.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)thirdparty\assimp\include;$(SolutionDir)thirdparty\glm\include;$(SolutionDir)thirdparty\glfw\include;$(SolutionDir)thirdparty\glew\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Users\dylan\Downloads\assimp-3.1.1\build\Release;C:\Users\dylan\Downloads\glfw-3.1.2.bin.WIN64\lib-vc2015;C:\Users\dylan\Downloads\glew-1.13.0\lib\Release\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)thirdparty\assimp\lib\Release;$(SolutionDir)thirdparty\glfw\lib;$(SolutionDir)thirdparty\glew\lib\Release\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;glu32.lib;glew32.lib;glfw3.lib;assimp.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
